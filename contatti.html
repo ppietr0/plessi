@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contatti · Plessi</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="nav">
+  <a href="index.html" class="brand"><img src="logo-dark.svg" alt="Plessi — Technological Plants & Service"></a>
+  <nav class="nav-links">
+    <a href="servizi.html">Servizi</a>
+    <a href="progetti.html">Progetti</a>
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="sostenibilita.html">Sostenibilità</a>
+    <a href="index.html#clienti">Clienti</a>
+  </nav>
+  <a href="contatti.html" class="nav-cta">Contatti</a>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- ===================== SUBHERO ===================== -->
+<section class="subhero" data-screen-label="Contatti — Hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Contatti</div>
+    <h1>Parlaci del tuo<br><span class="y">prossimo progetto.</span></h1>
+    <p class="lead">Raccontaci la tua esigenza: ti rispondiamo con una soluzione impiantistica su misura e un preventivo dedicato. Siamo a Modena, nel cuore della Motor Valley.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" data-screen-label="Contatti — Form">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="ci">
+          <h5>Head Office</h5>
+          <div class="big">Via Tacito 5/D<br>41123 Modena (MO)</div>
+        </div>
+        <div class="ci">
+          <h5>Telefono</h5>
+          <div class="big"><a href="tel:059556924">059 556924</a></div>
+        </div>
+        <div class="ci">
+          <h5>Email</h5>
+          <div class="big"><a href="mailto:info@plessi.it">info@plessi.it</a></div>
+        </div>
+        <div class="ci">
+          <h5>Orari</h5>
+          <div class="big">Lunedì – Venerdì<br>8:30 – 17:30</div>
+        </div>
+        <div class="ci">
+          <h5>Seguici</h5>
+          <div class="big"><a href="https://www.linkedin.com/company/plessi-impianti" target="_blank" rel="noopener">LinkedIn →</a></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal d1">
+        <p class="kicker plain" style="margin-bottom:26px;">Contattaci</p>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label>Nome <span class="req">*</span></label>
+              <input type="text" name="nome" required>
+            </div>
+            <div class="field">
+              <label>Cognome <span class="req">*</span></label>
+              <input type="text" name="cognome" required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="field">
+            <label>Azienda</label>
+            <input type="text" name="azienda">
+          </div>
+          <div class="field">
+            <label>Messaggio <span class="req">*</span></label>
+            <textarea name="messaggio" required placeholder="Descrivi il tuo progetto o la tua esigenza…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-acc" style="width:100%;justify-content:center;">Invia richiesta <span class="arr">→</span></button>
+          <p class="form-ok" id="formOk">Grazie! Abbiamo ricevuto la tua richiesta — ti ricontatteremo al più presto.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><img src="logo-dark.svg" alt="Plessi"></div>
+        <p>Plessi Electric System realizza impianti elettrici e meccanici evoluti, con soluzioni integrate per l'efficienza energetica, l'automazione e il comfort operativo.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigazione</h5>
+        <a href="servizi.html">Servizi</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="sostenibilita.html">Sostenibilità</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h5>Head Office</h5>
+        <span class="li">Via Tacito 5/D</span>
+        <span class="li">41123 Modena, MO</span>
+        <span class="li">P.IVA IT02033890365</span>
+        <a href="tel:059556924">059 556924</a>
+      </div>
+      <div class="foot-col">
+        <h5>Seguici</h5>
+        <a href="https://www.linkedin.com/company/plessi-impianti" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:info@plessi.it">info@plessi.it</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="small">© 2026 Plessi SRL — Tutti i diritti riservati</span>
+      <span class="small">Modena · Italy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scroll.js"></script>
+<script>
+(function(){
+  var form = document.getElementById('contactForm');
+  var ok = document.getElementById('formOk');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    ok.classList.add('show');
+    form.querySelector('button').textContent = 'Inviato ✓';
+    setTimeout(function(){ form.reset(); }, 400);
+  });
+})();
+</script>
+</body>
+</html>

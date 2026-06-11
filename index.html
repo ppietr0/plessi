@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plessi · Impianti Elettrici, Meccanici e Speciali</title>
+<link rel="stylesheet" href="style.css">
+<script>
+  /* Flag the doc so the hero entrance animation applies — but only as an
+     enhancement. The CSS base state is fully visible, so if this never runs
+     the hero still shows. */
+  document.documentElement.classList.add('anim');
+  /* Safety net: guarantee the hero is visible even if the animation timeline
+     never advances (backgrounded tab, certain capture pipelines). */
+  window.addEventListener('load', function () {
+    setTimeout(function () { document.documentElement.classList.add('anim-done'); }, 1500);
+  });
+</script>
+</head>
+<body>
+
+<div class="progress"></div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <a href="#top" class="brand"><img src="logo-dark.svg" alt="Plessi — Technological Plants & Service"></a>
+  <nav class="nav-links">
+    <a href="servizi.html">Servizi</a>
+    <a href="progetti.html">Progetti</a>
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="sostenibilita.html">Sostenibilità</a>
+    <a href="#clienti">Clienti</a>
+  </nav>
+  <a href="contatti.html" class="nav-cta">Contatti</a>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top" data-screen-label="Hero">
+  <div class="hero-media">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="media/px_10292830.jpg">
+    </video>
+    <img class="hero-fallback" src="media/px_10292830.jpg" alt="Architettura premium con illuminazione d'autore">
+  </div>
+  <div class="hero-grad"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div class="wrap hero-content">
+      <h1>Ingegneria<br>impiantistica,<br><span class="y">fin nei minimi dettagli.</span></h1>
+      <p class="hero-lead">Impianti elettrici, meccanici e speciali per l'industria, il terziario e gli spazi che non ammettono compromessi.</p>
+      <div class="hero-actions">
+        <a href="progetti.html" class="btn btn-acc">Scopri i progetti <span class="arr">→</span></a>
+        <a href="servizi.html" class="btn btn-ghost">I nostri servizi</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scorri</span><span class="bar"></span></div>
+</section>
+
+<!-- ===================== TICKER ===================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Cabine MT/BT <span class="sep"></span></span>
+    <span class="ticker-item">Centrali termiche <span class="sep"></span></span>
+    <span class="ticker-item">HVAC <span class="sep"></span></span>
+    <span class="ticker-item">Quadri elettrici <span class="sep"></span></span>
+    <span class="ticker-item">Data center <span class="sep"></span></span>
+    <span class="ticker-item">Building automation <span class="sep"></span></span>
+    <span class="ticker-item">Antincendio <span class="sep"></span></span>
+    <span class="ticker-item">Reti dati <span class="sep"></span></span>
+  </div>
+</div>
+
+<!-- ===================== STATEMENT ===================== -->
+<section class="statement">
+  <div class="wrap reveal">
+    <p class="kicker">Il nostro approccio</p>
+    <p class="big" style="margin-top:30px;">
+      <span class="acc">Costruiamo fiducia.</span> Realizziamo impianti destinati a durare nel tempo —
+      <span class="dim">e a funzionare, ogni giorno, senza compromessi.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== PILLARS ===================== -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="pill-grid">
+      <div class="pill reveal">
+        <span class="pn">/ 01</span>
+        <h3>competenza.</h3>
+        <p>Settant'anni di cantieri e ingegneria interna. Sappiamo progettare e costruire, dall'idea alla messa in servizio.</p>
+      </div>
+      <div class="pill reveal d1">
+        <span class="pn">/ 02</span>
+        <h3>innovazione.</h3>
+        <p>Automazione, efficienza energetica e tecnologie integrate per impianti più intelligenti e sostenibili.</p>
+      </div>
+      <div class="pill reveal d2">
+        <span class="pn">/ 03</span>
+        <h3>continuità.</h3>
+        <p>Non ci fermiamo alla consegna: service, manutenzione e reperibilità per garantire prestazioni nel tempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats">
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num"><span data-count="70">0</span><span class="suf">+</span></div>
+        <div class="lab">Anni di esperienza</div>
+      </div>
+      <div class="stat reveal d1">
+        <div class="num"><span data-count="30">0</span></div>
+        <div class="lab">Tecnici e professionisti</div>
+      </div>
+      <div class="stat reveal d2">
+        <div class="num"><span class="suf">+</span><span data-count="18.7" data-dec="1">0</span><span class="suf">%</span></div>
+        <div class="lab">CAGR a 3 anni · crescita media</div>
+      </div>
+      <div class="stat reveal d3">
+        <div class="num"><span data-count="100">0</span><span class="suf">%</span></div>
+        <div class="lab">Utili reinvestiti nel core business</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="servizi" data-screen-label="Servizi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <p class="kicker">I nostri servizi</p>
+        <h2 class="h2" style="margin-top:22px;">Soluzioni<br>su misura. Sempre.</h2>
+      </div>
+      <p class="lead">Tre divisioni che lavorano come una sola: dalla progettazione alla messa in servizio, fino alla manutenzione nel tempo.</p>
+    </div>
+
+    <div class="serv-list">
+      <a href="#contatti" class="serv reveal" data-magnetic>
+        <div class="idx">/ 01</div>
+        <div class="name">Impianti<br>Elettrici</div>
+        <div class="desc">Cabine MT/BT, quadri di potenza e distribuzione, illuminazione e sistemi intelligenti per ogni tipo di struttura.</div>
+        <div class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+      </a>
+      <a href="#contatti" class="serv reveal" data-magnetic>
+        <div class="idx">/ 02</div>
+        <div class="name">Impianti<br>Meccanici</div>
+        <div class="desc">Centrali termiche e frigorifere, HVAC, impianti idrico-sanitari civili e industriali ad alta efficienza.</div>
+        <div class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+      </a>
+      <a href="#contatti" class="serv reveal" data-magnetic>
+        <div class="idx">/ 03</div>
+        <div class="name">Impianti<br>Speciali</div>
+        <div class="desc">Reti dati, sicurezza, antincendio e infrastrutture critiche: tecnologie avanzate per data center e ambienti sensibili.</div>
+        <div class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+      </a>
+      <a href="#contatti" class="serv reveal" data-magnetic>
+        <div class="idx">/ 04</div>
+        <div class="name">Service &amp;<br>Manutenzione</div>
+        <div class="desc">Assistenza programmata, reperibilità e gestione del ciclo di vita dell'impianto. Continuità operativa garantita.</div>
+        <div class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIVISIONS (cinematic) ===================== -->
+<section class="divisions" id="divisioni" data-screen-label="Divisioni">
+
+  <div class="div-panel">
+    <div class="par"><img src="media/px_236089.jpg" alt="Impianti elettrici"></div>
+    <div class="pg"></div>
+    <span class="pnum">01 / 03 — Divisioni</span>
+    <div class="pc">
+      <span class="pk">Impianti Elettrici</span>
+      <h3>Potenza<br>e intelligenza.</h3>
+      <p class="pl">Cabine MT/BT, quadri di potenza, distribuzione, illuminazione e sistemi smart. Energia affidabile per ogni struttura, dall'industria al terziario.</p>
+      <a href="#contatti" class="pbtn">Scopri la divisione <span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <div class="div-panel">
+    <div class="par"><img src="media/px_32032996.jpg" alt="Impianti meccanici"></div>
+    <div class="pg"></div>
+    <span class="pnum">02 / 03 — Divisioni</span>
+    <div class="pc">
+      <span class="pk">Impianti Meccanici</span>
+      <h3>Comfort<br>ad alta efficienza.</h3>
+      <p class="pl">Centrali termiche e frigorifere, HVAC, impianti idrico-sanitari civili e industriali. Progettati per consumare meno e durare di più.</p>
+      <a href="#contatti" class="pbtn">Scopri la divisione <span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <div class="div-panel">
+    <div class="par"><img src="media/px_17489160.jpg" alt="Impianti speciali"></div>
+    <div class="pg"></div>
+    <span class="pnum">03 / 03 — Divisioni</span>
+    <div class="pc">
+      <span class="pk">Impianti Speciali</span>
+      <h3>Tecnologia<br>per il critico.</h3>
+      <p class="pl">Reti dati, sicurezza, antincendio e infrastrutture critiche. Soluzioni avanzate per data center e ambienti che non possono fermarsi.</p>
+      <a href="#contatti" class="pbtn">Scopri la divisione <span class="arr">→</span></a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about" data-screen-label="Chi siamo">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <img src="media/pj_a4c183_f88306676db24a8698ed24441f6a2123.jpg" alt="Plessi al lavoro">
+        <div class="tag">Dal 1953 · Modena</div>
+      </div>
+      <div class="about-copy">
+        <p class="kicker reveal">Chi siamo</p>
+        <h2 class="h2 reveal d1" style="margin-top:22px;">Da oltre 70 anni<br>al servizio<br>dell'energia.</h2>
+        <p class="reveal d2"><strong>Plessi</strong> nasce e cresce nel cuore della Motor Valley. Tre generazioni di esperienza negli impianti elettrici e meccanici, al fianco delle imprese che fanno l'industria italiana.</p>
+        <p class="reveal d2">Uniamo competenza tecnica e innovazione per offrire soluzioni sicure, efficienti e durature. Crediamo nella qualità, nel servizio e in un futuro più sostenibile.</p>
+        <div class="about-points reveal d3">
+          <div class="pt"><span class="k">01</span><span class="v">Progettazione e ingegneria interna</span></div>
+          <div class="pt"><span class="k">02</span><span class="v">Cantieri civili, industriali e infrastrutturali</span></div>
+          <div class="pt"><span class="k">03</span><span class="v">Efficienza energetica e fonti rinnovabili</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS (pinned horizontal) ===================== -->
+<section class="projects" id="progetti" data-screen-label="Progetti">
+  <div class="wrap proj-intro">
+    <div class="sec-head reveal">
+      <div>
+        <p class="kicker">Progetti recenti</p>
+        <h2 class="h2" style="margin-top:22px;">Cosa abbiamo<br>realizzato.</h2>
+      </div>
+      <p class="lead">Una selezione di cantieri recenti: industria, terziario, residenziale e infrastrutture. Scorri per esplorare.</p>
+    </div>
+    <div class="sectors reveal d1">
+      <span class="chip">automotive</span>
+      <span class="chip">industria</span>
+      <span class="chip">difesa</span>
+      <span class="chip">terziario</span>
+      <span class="chip">residenziale</span>
+      <span class="chip">hospitality</span>
+      <span class="chip">retail</span>
+    </div>
+  </div>
+
+  <div class="pin">
+    <div class="pin-stage">
+      <div class="pin-head">
+        <span class="kicker plain" style="color:var(--faint);">Opere selezionate</span>
+        <span class="pin-prog"><i></i></span>
+      </div>
+      <div class="pin-track">
+
+        <article class="card">
+          <span class="corner">01 / 07</span>
+          <img src="media/pj_e8749d_f24650d1c4dc4744b482e54cd2e545eb.jpg" alt="CPC Group">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Industriale · Ampliamento</div>
+            <div class="ttl">CPC Group<br>Ampliamento stabilimento</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">02 / 07</span>
+          <img src="media/pj_e8749d_99eae6a42b3e499aa4793f55c271f13b.jpg" alt="Forghieri Headquarters">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Terziario · Headquarters</div>
+            <div class="ttl">Forghieri<br>Headquarters</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">03 / 07</span>
+          <img src="media/pj_e8749d_e147c838b2e547a9b56d0e63dd02a82f.jpg" alt="Reggimento Orione">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Infrastruttura · Difesa</div>
+            <div class="ttl">2° Reggimento AVES<br>"Orione" — IRAI</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">04 / 07</span>
+          <img src="media/pj_e8749d_15e1b49c2ac44612a51e64e19fca4611.jpg" alt="Automobili Lamborghini">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Corporate · Retail</div>
+            <div class="ttl">Automobili Lamborghini<br>Corner Aeroporto Marconi</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">05 / 07</span>
+          <img src="media/pj_e8749d_48ebca85d9b74e87af9de6733565282e.jpg" alt="Ex Officine Tosi">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Residenziale · Recupero</div>
+            <div class="ttl">Ex Officine Tosi<br>Residenziale</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">06 / 07</span>
+          <img src="media/pj_e8749d_ad311399a9804ea8b1969a6dd93fd86d.jpg" alt="EV Concept Store">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Commerciale · Residenziale</div>
+            <div class="ttl">EV Concept Store</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="corner">07 / 07</span>
+          <img src="media/pj_e8749d_877ee43929ac4c65ad3850daf76687c6.jpg" alt="Ristorante Patrizia">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <div class="meta">Interni · Hospitality</div>
+            <div class="ttl">Ristorante Patrizia<br>Interni</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top:0;padding-bottom:clamp(70px,10vh,120px);text-align:center;">
+    <a href="progetti.html" class="btn btn-ghost reveal">Tutti i progetti <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ===================== ESG ===================== -->
+<section class="esg" id="esg" data-screen-label="Sostenibilità">
+  <div class="wrap">
+    <div class="esg-grid">
+      <div>
+        <p class="kicker reveal">Sostenibilità</p>
+        <h2 class="h2 reveal d1" style="margin-top:22px;">Impianti che<br>guardano avanti.</h2>
+        <p class="lead reveal d2" style="margin-top:26px;">Progettiamo efficienza energetica, integriamo fonti rinnovabili e riduciamo i consumi lungo tutto il ciclo di vita. La sostenibilità non è un reparto: è il modo in cui costruiamo.</p>
+      </div>
+      <div class="esg-cards">
+        <div class="esg-card reveal d1">
+          <div class="n">/ Energia</div>
+          <h4>Efficienza energetica</h4>
+          <p>Diagnosi, riqualificazione e gestione intelligente dei consumi per edifici e processi industriali.</p>
+        </div>
+        <div class="esg-card reveal d2">
+          <div class="n">/ Rinnovabili</div>
+          <h4>Fotovoltaico &amp; storage</h4>
+          <p>Produzione e accumulo integrati nell'impianto, per autonomia e riduzione dei costi.</p>
+        </div>
+        <div class="esg-card reveal d3">
+          <div class="n">/ Responsabilità</div>
+          <h4>Sicurezza &amp; qualità</h4>
+          <p>Processi certificati, cantieri sicuri e attenzione alle persone in ogni fase del lavoro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLIENTS ===================== -->
+<section id="clienti" data-screen-label="Clienti">
+  <div class="wrap" style="padding-top:clamp(80px,12vh,140px);padding-bottom:clamp(34px,5vh,60px);text-align:center;">
+    <p class="kicker plain reveal" style="justify-content:center;color:var(--faint);">Trusted by industry leaders</p>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track logos">
+    <span class="logo-item"><img src="media/logo_e8749d_3638a298ce8a4137abcfb5e2f4566425.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_167cf1e8a04b41e8a71f2f187e28d0ff.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_bba96b85d19a48c284b7c177e133f6d6.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_fe8968a48f91499abcd3f837ae798d4c.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_204b4470fbb84c6f9cd2bc0abfdd3ecb.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_abec17eaf69147358acff3454e48250b.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_d074a62afb9c403cab857eab5d1b0b3d.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_6b69deb088fc49edb7824446814e911d.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_fbe163fc6f244c22b6d0b65879674e59.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_8f63df0eaefa4a638f8044c6efc8724d.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_d0dba6ed187147499dd00f76df26200b.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_f4e2ceb5abee48c19348102c8597a637.png" alt="Cliente Plessi"></span>
+    <span class="logo-item"><img src="media/logo_e8749d_a6287ff7267d4223b57015d90bbe9ffa.png" alt="Cliente Plessi"></span>
+  </div>
+</div>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contatti" data-screen-label="Contatti">
+  <div class="wrap">
+    <p class="kicker plain reveal" style="justify-content:center;">Iniziamo a costruire</p>
+    <h2 class="reveal d1" style="margin-top:24px;">Il tuo prossimo<br>progetto, <span class="y">acceso.</span></h2>
+    <p class="lead reveal d2">Raccontaci la tua esigenza: ti rispondiamo con una soluzione impiantistica su misura e un preventivo dedicato.</p>
+    <div class="cta-actions reveal d3">
+      <a href="mailto:info@plessi.it" class="btn btn-acc">Richiedi un preventivo <span class="arr">→</span></a>
+      <a href="tel:059556924" class="btn btn-ghost">059 556924</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><img src="logo-dark.svg" alt="Plessi"></div>
+        <p>Plessi realizza impianti elettrici, meccanici e speciali evoluti, con soluzioni integrate per l'efficienza energetica, l'automazione e il comfort operativo.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigazione</h5>
+        <a href="servizi.html">Servizi</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="sostenibilita.html">Sostenibilità</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h5>Head Office</h5>
+        <span class="li">Via Tacito 5/D</span>
+        <span class="li">41123 Modena, MO</span>
+        <span class="li">P.IVA IT02033890365</span>
+        <a href="tel:059556924">059 556924</a>
+      </div>
+      <div class="foot-col">
+        <h5>Seguici</h5>
+        <a href="https://www.linkedin.com/company/plessi-impianti" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:info@plessi.it">info@plessi.it</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="small">© 2026 Plessi SRL — Tutti i diritti riservati</span>
+      <span class="small">Modena · Italy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scroll.js"></script>
+</body>
+</html>

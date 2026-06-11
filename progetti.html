@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progetti · Plessi</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="nav">
+  <a href="index.html" class="brand"><img src="logo-dark.svg" alt="Plessi — Technological Plants & Service"></a>
+  <nav class="nav-links">
+    <a href="servizi.html">Servizi</a>
+    <a href="progetti.html">Progetti</a>
+    <a href="chi-siamo.html">Chi siamo</a>
+    <a href="sostenibilita.html">Sostenibilità</a>
+    <a href="index.html#clienti">Clienti</a>
+  </nav>
+  <a href="contatti.html" class="nav-cta">Contatti</a>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- ===================== SUBHERO ===================== -->
+<section class="subhero" data-screen-label="Progetti — Hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Progetti</div>
+    <h1>Opere che<br><span class="y">durano nel tempo.</span></h1>
+    <p class="lead">Una selezione di cantieri recenti tra industria, residenziale di pregio, terziario, datacenter, retail e infrastrutture critiche. Impianti elettrici, meccanici e speciali, progettati e realizzati con la stessa cura — fin nei minimi dettagli.</p>
+    <div class="subhero-meta">
+      <div class="item"><div class="n">21<span class="suf">+</span></div><div class="t">Progetti in vetrina</div></div>
+      <div class="item"><div class="n">7<span class="suf">×</span></div><div class="t">Settori di mercato</div></div>
+      <div class="item"><div class="n">70<span class="suf">+</span></div><div class="t">Anni di cantieri</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GRID ===================== -->
+<section class="proj-page" data-screen-label="Progetti — Griglia">
+  <div class="wrap">
+    <div class="filters">
+        <button class="filter active" data-filter="all">tutti <span class="c">21</span></button>
+        <button class="filter" data-filter="industria">industria <span class="c">3</span></button>
+        <button class="filter" data-filter="residenziale">residenziale <span class="c">5</span></button>
+        <button class="filter" data-filter="terziario">terziario <span class="c">4</span></button>
+        <button class="filter" data-filter="datacenter">datacenter <span class="c">2</span></button>
+        <button class="filter" data-filter="retail">retail <span class="c">5</span></button>
+        <button class="filter" data-filter="difesa">difesa <span class="c">2</span></button>
+    </div>
+    <div class="proj-count">Mostrando <b id="shown">21</b> di 21 progetti</div>
+    <div class="grid" id="grid">
+        <a href="#" class="pcard reveal" data-cat="terziario">
+          <img src="media/pj_e8749d_5cc5b19f8df947259ede2077647a5138f003.jpg" alt="Fondazione San Carlo" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Terziario · Manutenzione</div><div class="ptitle">Fondazione San Carlo</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="residenziale">
+          <img src="media/pj_e8749d_78f498ae2c8646bea45faf0512b252d5.jpg" alt="Z.THREE — Residenza di pregio" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Residenziale · NZEB</div><div class="ptitle">Z.THREE — Residenza di pregio</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="industria">
+          <img src="media/pj_e8749d_f24650d1c4dc4744b482e54cd2e545eb.jpg" alt="CPC Group" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Industria · Ampliamento</div><div class="ptitle">CPC Group</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="difesa">
+          <img src="media/pj_e8749d_e7f176b0190443e68128eb16e9e18b42.jpg" alt="2° Reggimento AVES «Orione»" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Difesa · Infrastruttura</div><div class="ptitle">2° Reggimento AVES «Orione»</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="residenziale">
+          <img src="media/pj_e8749d_5f8048b52b1a4f5288d2125cd2dd0456.jpg" alt="Residenza Molinella" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Residenziale</div><div class="ptitle">Residenza Molinella</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="terziario">
+          <img src="media/pj_e8749d_99eae6a42b3e499aa4793f55c271f13b.jpg" alt="Forghieri Headquarters" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Terziario · Headquarters</div><div class="ptitle">Forghieri Headquarters</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="retail">
+          <img src="media/pj_e8749d_ad311399a9804ea8b1969a6dd93fd86d.jpg" alt="EV Concept Store" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Commerciale · Residenziale</div><div class="ptitle">EV Concept Store</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="residenziale">
+          <img src="media/pj_e8749d_48ebca85d9b74e87af9de6733565282e.jpg" alt="Ex Officine Tosi" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Residenziale · Recupero</div><div class="ptitle">Ex Officine Tosi</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="retail">
+          <img src="media/pj_e8749d_15e1b49c2ac44612a51e64e19fca4611.jpg" alt="Automobili Lamborghini" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Retail · Corporate</div><div class="ptitle">Automobili Lamborghini</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="terziario">
+          <img src="media/pj_e8749d_877ee43929ac4c65ad3850daf76687c6.jpg" alt="Ristorante Patrizia" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Hospitality · Interni</div><div class="ptitle">Ristorante Patrizia</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="residenziale">
+          <img src="media/pj_e8749d_2345680ae0504574963bbd755ff4a823.jpg" alt="Casa BN" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Residenziale</div><div class="ptitle">Casa BN</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="datacenter">
+          <img src="media/pj_e8749d_91180670ed674a38a0edbc1c40e585c3.jpg" alt="BPER Park" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Datacenter</div><div class="ptitle">BPER Park</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="industria">
+          <img src="media/pj_e8749d_00e0279eb8004c26a1760d5989aac4fc.jpg" alt="Ferrari — Motorhome & Kit Box" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Automotive · Allestimenti</div><div class="ptitle">Ferrari — Motorhome & Kit Box</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="residenziale">
+          <img src="media/pj_e8749d_ab7b78ea56d140ccb9c08689ce5be300.jpg" alt="Ecovillaggio" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Residenziale · Rinnovabili</div><div class="ptitle">Ecovillaggio</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="retail">
+          <img src="media/pj_e8749d_d13eef30bb4a41cd96fad61e80c676cc.jpg" alt="Italgraniti — Cersaie 2024" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Fiere · Illuminotecnica</div><div class="ptitle">Italgraniti — Cersaie 2024</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="retail">
+          <img src="media/pj_e8749d_4c23e7bf338b4beebca3846e183af4fd.jpg" alt="Imperial — Le Befane" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Retail</div><div class="ptitle">Imperial — Le Befane</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="retail">
+          <img src="media/pj_e8749d_9b56699296f748318916a98a7838cfda.jpg" alt="Lidl Italia" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Retail · Manutenzione</div><div class="ptitle">Lidl Italia</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="difesa">
+          <img src="media/pj_e8749d_ce70c36d51c3434ab7b66767e69fe307.jpg" alt="Aeroporto Militare di Cameri" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Difesa · Aeroporto</div><div class="ptitle">Aeroporto Militare di Cameri</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="datacenter">
+          <img src="media/pj_e8749d_a8fc874028ad4d5fbdc7ea8fea14623c.jpg" alt="Stazione A4 Padova Est" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Datacenter · Infrastruttura</div><div class="ptitle">Stazione A4 Padova Est</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="terziario">
+          <img src="media/pj_e8749d_158067628d744769a088b8ebe3721767.jpg" alt="Max Home" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Terziario · Speciali</div><div class="ptitle">Max Home</div></div>
+        </a>
+        <a href="#" class="pcard reveal" data-cat="industria">
+          <img src="media/pj_e8749d_ec048b37a7964b5c83d6cf9e2fe22d3d.jpg" alt="Edilmontorsi" loading="lazy">
+          <div class="pgrad"></div>
+          <div class="parr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></div>
+          <div class="pbody"><div class="pcat">Industria · Rinnovabili</div><div class="ptitle">Edilmontorsi</div></div>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" data-screen-label="Progetti — CTA">
+  <div class="wrap">
+    <p class="kicker plain reveal" style="justify-content:center;">Iniziamo a costruire</p>
+    <h2 class="reveal d1" style="margin-top:24px;">Il tuo prossimo<br>progetto, <span class="y">acceso.</span></h2>
+    <p class="lead reveal d2">Raccontaci la tua esigenza: ti rispondiamo con una soluzione impiantistica su misura e un preventivo dedicato.</p>
+    <div class="cta-actions reveal d3">
+      <a href="mailto:info@plessi.it" class="btn btn-acc">Richiedi un preventivo <span class="arr">→</span></a>
+      <a href="tel:059556924" class="btn btn-ghost">059 556924</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><img src="logo-dark.svg" alt="Plessi"></div>
+        <p>Plessi Electric System realizza impianti elettrici e meccanici evoluti, con soluzioni integrate per l'efficienza energetica, l'automazione e il comfort operativo.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigazione</h5>
+        <a href="servizi.html">Servizi</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="sostenibilita.html">Sostenibilità</a>
+        <a href="contatti.html">Contatti</a>
+      </div>
+      <div class="foot-col">
+        <h5>Head Office</h5>
+        <span class="li">Via Tacito 5/D</span>
+        <span class="li">41123 Modena, MO</span>
+        <span class="li">P.IVA IT02033890365</span>
+        <a href="tel:059556924">059 556924</a>
+      </div>
+      <div class="foot-col">
+        <h5>Seguici</h5>
+        <a href="https://www.linkedin.com/company/plessi-impianti" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:info@plessi.it">info@plessi.it</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="small">© 2026 Plessi SRL — Tutti i diritti riservati</span>
+      <span class="small">Modena · Italy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scroll.js"></script>
+<script>
+(function(){
+  var filters = document.querySelectorAll('.filter');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.pcard'));
+  var shown = document.getElementById('shown');
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(f){ f.classList.remove('active'); });
+      btn.classList.add('active');
+      var key = btn.getAttribute('data-filter');
+      var n = 0;
+      cards.forEach(function(c){
+        var match = (key === 'all' || c.getAttribute('data-cat') === key);
+        c.classList.toggle('hide', !match);
+        if(match){ n++; c.classList.add('in'); }
+      });
+      if(shown) shown.textContent = n;
+    });
+  });
+})();
+</script>
+</body>
+</html>
