@@ -147,20 +147,19 @@ body::-webkit-scrollbar-thumb { background: #2a2a2e; border-radius: 0; }
   .nav-burger span { transition: transform .35s var(--ease), opacity .2s var(--ease); }
   .brand { position: relative; z-index: 97; }
 
-  /* full-screen frosted menu — fades in, fully hidden when closed (no iOS ghosting) */
-  .nav .nav-links,
-  .nav.solid .nav-links {
+  /* full-screen frosted menu — relocated to <body> by scroll.js on mobile,
+     so no nav state (.solid backdrop-filter) can ever trap it */
+  .nav-links {
     position: fixed; inset: 0; z-index: 95;
     flex-direction: column; justify-content: center; align-items: flex-start;
     gap: 2px; padding: 0 var(--pad);
     background: rgba(10,10,11,0.97);
     -webkit-backdrop-filter: blur(26px) saturate(1.3); backdrop-filter: blur(26px) saturate(1.3);
     border: 0; border-radius: 0;
-    opacity: 0; visibility: hidden;
+    opacity: 0; visibility: hidden; pointer-events: none;
     transition: opacity .42s var(--ease), visibility 0s linear .42s;
   }
-  body:not(.menu-open) .nav-links { pointer-events: none; }
-  body.menu-open .nav-links { opacity: 1; visibility: visible; transition: opacity .42s var(--ease), visibility 0s; }
+  body.menu-open .nav-links { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .42s var(--ease), visibility 0s; }
   .nav-links a {
     font-size: clamp(30px, 8vw, 50px); font-weight: 700; color: var(--text);
     padding: 11px 0; text-transform: uppercase; letter-spacing: -0.02em; border-radius: 0;
@@ -574,6 +573,39 @@ html.anim-done .hero-actions { opacity: 1 !important; transform: none !important
   margin-top: clamp(50px, 8vh, 90px); padding-top: 28px; border-top: 1px solid var(--line); }
 .foot-bottom .small { font-family: var(--mono); font-size: 12px; color: var(--faint); }
 @media (max-width: 860px) { .foot-top { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+
+/* served-areas line in footer */
+.foot-areas { margin-top: 14px; font-size: 13px; color: var(--faint); line-height: 1.55; max-width: 36ch; }
+
+/* ============================================================
+   FAQ (local SEO)
+   ============================================================ */
+.faq { padding: clamp(80px, 12vh, 150px) 0 clamp(40px, 6vh, 70px); border-top: 1px solid var(--line); }
+.faq-list { margin-top: clamp(40px, 6vh, 64px); border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: clamp(22px, 3vw, 32px) 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  font-weight: 600; font-size: clamp(17px, 2vw, 23px); letter-spacing: -0.015em;
+  transition: color .3s var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--acc); }
+.faq-item summary .ic {
+  width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%;
+  flex: none; position: relative; transition: background .35s var(--ease), border-color .35s var(--ease);
+}
+.faq-item summary .ic::before, .faq-item summary .ic::after {
+  content: ''; position: absolute; top: 50%; left: 50%; background: var(--text);
+  transform: translate(-50%,-50%); transition: transform .35s var(--ease), background .35s var(--ease);
+}
+.faq-item summary .ic::before { width: 13px; height: 2px; }
+.faq-item summary .ic::after { width: 2px; height: 13px; }
+.faq-item[open] summary .ic { background: var(--acc); border-color: var(--acc); }
+.faq-item[open] summary .ic::before, .faq-item[open] summary .ic::after { background: var(--acc-ink); }
+.faq-item[open] summary .ic::after { transform: translate(-50%,-50%) scaleY(0); }
+.faq-item .faq-a { padding: 0 0 clamp(24px, 3.4vw, 36px); color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 72ch; }
+.faq-item .faq-a a { color: var(--acc); text-decoration: underline; text-underline-offset: 3px; }
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {

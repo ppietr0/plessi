@@ -208,7 +208,29 @@
 
   /* ---------- mobile menu ---------- */
   var burger = document.querySelector('.nav-burger');
-  var links = document.querySelector('.nav-links');
+  var navLinks = document.querySelector('.nav-links');
+  var navCta = document.querySelector('.nav-cta');
+  var navEl = document.querySelector('.nav');
+  var mobileMQ = window.matchMedia('(max-width: 900px)');
+
+  /* On mobile, move the menu (and CTA) OUT of the fixed nav bar into <body>:
+     backdrop-filter on .nav/.solid makes the bar a containing block on iOS,
+     trapping the fixed full-screen menu inside the 60px bar. */
+  function placeMenu() {
+    if (!navLinks || !navEl) return;
+    if (mobileMQ.matches) {
+      if (navLinks.parentNode !== document.body) document.body.appendChild(navLinks);
+      if (navCta && navCta.parentNode !== document.body) document.body.appendChild(navCta);
+    } else {
+      document.body.classList.remove('menu-open');
+      if (navLinks.parentNode !== navEl) navEl.insertBefore(navLinks, navEl.querySelector('.nav-burger'));
+      if (navCta && navCta.parentNode !== navEl) navEl.insertBefore(navCta, navEl.querySelector('.nav-burger'));
+    }
+  }
+  placeMenu();
+  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', placeMenu);
+  else window.addEventListener('resize', placeMenu);
+
   if (burger) {
     burger.addEventListener('click', function () {
       document.body.classList.toggle('menu-open');

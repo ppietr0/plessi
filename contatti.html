@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contatti · Plessi</title>
+<meta name="description" content="Contatta Plessi a Modena: Via Tacito 5/D, tel. 059 556924, info@plessi.it. Raccontaci il tuo progetto, ti rispondiamo con una soluzione su misura.">
+<link rel="canonical" href="https://www.plessi.it/contatti.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0c0c0d">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Plessi">
+<meta property="og:title" content="Contatti · Plessi">
+<meta property="og:description" content="Via Tacito 5/D, Modena · 059 556924 · info@plessi.it. Parlaci del tuo prossimo progetto.">
+<meta property="og:url" content="https://www.plessi.it/contatti.html">
+<meta property="og:image" content="https://www.plessi.it/media/px_10292830.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pages.css">
 </head>
@@ -63,6 +75,10 @@
       <div class="form-card reveal d1">
         <p class="kicker plain" style="margin-bottom:26px;">Contattaci</p>
         <form id="contactForm" novalidate>
+          <input type="hidden" name="access_key" value="f6cdb133-e298-4b3a-bff8-d7000f5abce0">
+          <input type="hidden" name="subject" value="Nuova richiesta dal sito plessi.it">
+          <input type="hidden" name="from_name" value="Sito Plessi">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label>Nome <span class="req">*</span></label>
@@ -134,12 +150,43 @@
 (function(){
   var form = document.getElementById('contactForm');
   var ok = document.getElementById('formOk');
+  var btn = form.querySelector('button[type="submit"]');
+  var KEY = form.querySelector('input[name="access_key"]').value;
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
-    ok.classList.add('show');
-    form.querySelector('button').textContent = 'Inviato ✓';
-    setTimeout(function(){ form.reset(); }, 400);
+
+    /* Backend non ancora configurato: fallback via client email */
+    if(KEY === 'YOUR_WEB3FORMS_KEY'){
+      var d = new FormData(form);
+      var body = 'Nome: ' + d.get('nome') + ' ' + d.get('cognome') +
+                 '%0AEmail: ' + d.get('email') +
+                 '%0AAzienda: ' + (d.get('azienda') || '-') +
+                 '%0A%0A' + encodeURIComponent(d.get('messaggio'));
+      window.location.href = 'mailto:info@plessi.it?subject=' + encodeURIComponent('Richiesta dal sito') + '&body=' + body;
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Invio in corso…';
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.success){
+          ok.textContent = 'Grazie! Abbiamo ricevuto la tua richiesta — ti ricontatteremo al più presto.';
+          ok.classList.add('show');
+          btn.textContent = 'Inviato ✓';
+          form.reset();
+        } else { throw new Error(res.message || 'errore'); }
+      })
+      .catch(function(){
+        ok.textContent = 'Si è verificato un problema. Scrivici direttamente a info@plessi.it o chiama lo 059 556924.';
+        ok.classList.add('show');
+        btn.disabled = false;
+        btn.innerHTML = 'Riprova <span class="arr">→</span>';
+      });
   });
 })();
 </script>
