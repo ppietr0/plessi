@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Generatore Firma Email · Plessi</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background: var(--bg-2); }
+  .sig-wrap { max-width: 1180px; margin: 0 auto; padding: clamp(80px,12vh,120px) var(--pad) 80px; }
+  .sig-head { margin-bottom: 44px; }
+  .sig-head h1 { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(30px,4vw,52px); line-height: 1; }
+  .sig-head p { color: var(--muted); font-size: 16px; margin-top: 16px; max-width: 60ch; line-height: 1.6; }
+  .sig-grid { display: grid; grid-template-columns: 380px 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 900px) { .sig-grid { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--bg); border: 1px solid var(--line); padding: 30px; }
+  .panel h2 { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--acc); margin-bottom: 22px; }
+  .fld { margin-bottom: 18px; }
+  .fld label { display: block; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 7px; }
+  .fld input { width: 100%; background: var(--bg-3); border: 1px solid var(--line); color: var(--text); padding: 12px 13px; font-family: var(--display); font-size: 14.5px; }
+  .fld input:focus { outline: none; border-color: var(--acc); }
+
+  .preview-area { }
+  .preview-box { background: #ffffff; border: 1px solid var(--line); padding: 34px; overflow-x: auto; }
+  .preview-label { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--faint); margin-bottom: 14px; }
+  .actions { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+  .copybtn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding: 15px 24px; cursor: pointer; border: none; background: var(--acc); color: var(--acc-ink); font-weight: 700; transition: background .25s; }
+  .copybtn:hover { background: #fff; }
+  .copybtn.ok { background: #1f8a5b; color: #fff; }
+  .copybtn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .copybtn.ghost:hover { border-color: var(--acc); color: var(--acc); }
+
+  .steps { margin-top: 50px; background: var(--bg); border: 1px solid var(--line); padding: 34px; }
+  .steps h2 { font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; font-size: 22px; margin-bottom: 8px; }
+  .steps .sub { color: var(--muted); font-size: 14px; margin-bottom: 26px; }
+  .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  @media (max-width: 760px) { .steps-grid { grid-template-columns: 1fr; } }
+  .steps-grid h3 { font-family: var(--mono); font-size: 13px; color: var(--acc); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .steps ol { padding-left: 0; list-style: none; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; padding-left: 38px; margin-bottom: 14px; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 24px; height: 24px; background: var(--bg-3); border: 1px solid var(--line); color: var(--acc); font-family: var(--mono); font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .steps li strong { color: var(--text); font-weight: 600; }
+  .note { margin-top: 24px; padding: 16px 18px; border-left: 2px solid var(--acc); background: var(--bg-3); color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+  .note strong { color: var(--text); }
+  .warn-host { margin-top: 22px; padding: 16px 18px; background: rgba(253,211,0,0.08); border: 1px solid rgba(253,211,0,0.3); color: var(--text); font-size: 13.5px; line-height: 1.6; }
+  code { font-family: var(--mono); font-size: 12.5px; background: var(--bg-3); padding: 2px 6px; color: var(--acc); }
+
+  /* password gate */
+  body.locked { overflow: hidden; }
+  body.locked .sig-wrap { display: none; }
+  .gate { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; background: var(--bg); padding: 24px; }
+  body.locked .gate { display: flex; }
+  .gate-card { width: 100%; max-width: 380px; text-align: center; }
+  .gate-card .mark { width: 12px; height: 12px; background: var(--acc); border-radius: 50%; display: inline-block; margin-bottom: 26px; }
+  .gate-card h1 { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-size: 30px; line-height: 1; }
+  .gate-card p { color: var(--muted); font-size: 14.5px; margin: 14px 0 28px; line-height: 1.6; }
+  .gate-card .kick { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--acc); margin-bottom: 18px; }
+  .gate form { display: flex; flex-direction: column; gap: 12px; }
+  .gate input { background: var(--bg-3); border: 1px solid var(--line); color: var(--text); padding: 15px 16px; font-family: var(--display); font-size: 15px; text-align: center; letter-spacing: .04em; }
+  .gate input:focus { outline: none; border-color: var(--acc); }
+  .gate button { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; padding: 15px 24px; cursor: pointer; border: none; background: var(--acc); color: var(--acc-ink); font-weight: 700; transition: background .25s; }
+  .gate button:hover { background: #fff; }
+  .gate .err { color: #ff6b6b; font-family: var(--mono); font-size: 12px; min-height: 16px; margin-top: 4px; }
+</style>
+</head>
+<body class="locked">
+
+<div class="gate">
+  <div class="gate-card">
+    <span class="mark"></span>
+    <div class="kick">Area riservata</div>
+    <h1>Firma email</h1>
+    <p>Strumento interno Plessi. Inserisci la password per accedere al generatore di firme.</p>
+    <form id="gateForm" autocomplete="off">
+      <input id="gatePw" type="password" placeholder="Password" autofocus>
+      <button type="submit">Accedi</button>
+      <div class="err" id="gateErr"></div>
+    </form>
+  </div>
+</div>
+
+<div class="sig-wrap">
+  <div class="sig-head">
+    <p style="font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:18px;">Plessi · Strumento interno</p>
+    <h1>Firma email</h1>
+    <p>Compila i tuoi dati, copia la firma e incollala in Outlook. Funziona su Outlook desktop, Outlook web, Gmail, Apple Mail e mobile — costruita in tabelle con stili inline, così si vede sempre uguale.</p>
+  </div>
+
+  <div class="sig-grid">
+    <!-- FORM -->
+    <div class="panel">
+      <h2>I tuoi dati</h2>
+      <div class="fld"><label>Nome e cognome</label><input id="f-name" type="text" value="Mario Rossi"></div>
+      <div class="fld"><label>Ruolo</label><input id="f-role" type="text" value="Project Manager"></div>
+      <div class="fld"><label>Telefono diretto / cellulare</label><input id="f-phone" type="text" value="+39 333 1234567"></div>
+      <div class="fld"><label>Email</label><input id="f-email" type="text" value="m.rossi@plessi.it"></div>
+      <div class="fld"><label>Centralino</label><input id="f-tel" type="text" value="059 556924"></div>
+      <div class="fld"><label>Sito web</label><input id="f-web" type="text" value="www.plessi.it"></div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-area">
+      <div class="preview-label">Anteprima</div>
+      <div class="preview-box">
+        <div id="sig-render"></div>
+      </div>
+      <div class="actions">
+        <button class="copybtn" id="copyBtn">Copia firma</button>
+        <button class="copybtn ghost" id="copyHtmlBtn">Copia codice HTML</button>
+      </div>
+      <div class="warn-host">
+        ⚠️ <strong>Prima di usarla:</strong> le immagini devono essere online. Carica i file <code>media/firma-logo-plessi.png</code> e <code>media/firma-sigillo.png</code> sul sito (saranno a <code>https://www.plessi.it/media/…</code>). Finché il sito non è pubblicato, nelle email appariranno come riquadri vuoti.
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="steps">
+    <h2>Come installarla</h2>
+    <p class="sub">Scegli il tuo Outlook. Bastano 2 minuti.</p>
+    <div class="steps-grid">
+      <div>
+        <h3>Outlook (app desktop Windows)</h3>
+        <ol>
+          <li>Clicca <strong>Copia firma</strong> qui sopra.</li>
+          <li>In Outlook: <strong>File → Opzioni → Posta → Firme…</strong></li>
+          <li>Premi <strong>Nuova</strong>, dai un nome (es. "Plessi").</li>
+          <li>Clicca nel riquadro grande e <strong>incolla</strong> (Ctrl+V).</li>
+          <li>Imposta la firma come predefinita per nuovi messaggi e risposte, poi <strong>OK</strong>.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Outlook sul web / Microsoft 365</h3>
+        <ol>
+          <li>Clicca <strong>Copia firma</strong> qui sopra.</li>
+          <li>Apri <strong>Impostazioni</strong> (⚙) → <strong>Posta → Composizione e risposta</strong>.</li>
+          <li>Nel riquadro firma <strong>incolla</strong> (Ctrl/Cmd+V).</li>
+          <li>Scegli di usarla per nuovi messaggi e risposte.</li>
+          <li><strong>Salva</strong>.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Mac (nuovo Outlook / Apple Mail):</strong> incollare l'HTML a volte non basta. In quel caso usa <strong>Copia codice HTML</strong>, salva il testo in un file <code>firma.html</code>, aprilo nel browser, seleziona tutto (Cmd+A), copia e incolla nel riquadro firma. È il metodo più affidabile su Mac.
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ---------- password gate (internal tool) ---------- */
+  (function(){
+    var KEY = 'plessi_firma_unlock';
+    var PW = 'firmamail';
+    if (sessionStorage.getItem(KEY) === '1') {
+      document.body.classList.remove('locked');
+    }
+    var form = document.getElementById('gateForm');
+    var pw = document.getElementById('gatePw');
+    var err = document.getElementById('gateErr');
+    if (form) {
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (pw.value === PW) {
+          sessionStorage.setItem(KEY, '1');
+          document.body.classList.remove('locked');
+        } else {
+          err.textContent = 'Password errata';
+          pw.value = '';
+          pw.focus();
+        }
+      });
+    }
+  })();
+
+  var PNG_URL = 'https://www.plessi.it/media/firma-logo-plessi.png';
+  var BADGE_URL = 'https://www.plessi.it/media/firma-sigillo.png';
+
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function buildSignature(d, logoSrc, badgeSrc){
+    var YELLOW = '#fdd300', INK = '#0c0c0d', GRAY = '#6b6b6b', LINE = '#e3e0d8';
+    var ff = "Arial, 'Helvetica Neue', Helvetica, sans-serif";
+    var telDigits = (d.tel||'').replace(/[^0-9+]/g,'');
+    var phoneDigits = (d.phone||'').replace(/[^0-9+]/g,'');
+    var webHref = (d.web||'').replace(/^https?:\/\//,'');
+    return ''+
+'<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:'+ff+';">'+
+  '<tr>'+
+    '<td style="vertical-align:middle;padding:0 22px 0 0;border-right:2px solid '+YELLOW+';">'+
+      '<img src="'+logoSrc+'" width="150" alt="Plessi" style="display:block;width:150px;height:auto;border:0;outline:none;">'+
+    '</td>'+
+    '<td style="vertical-align:top;padding:2px 0 0 24px;font-family:'+ff+';">'+
+      '<div style="font-family:'+ff+';font-size:17px;font-weight:bold;color:'+INK+';letter-spacing:.2px;line-height:1.2;">'+esc(d.name)+'</div>'+
+      '<div style="font-family:'+ff+';font-size:13px;color:'+GRAY+';padding:3px 0 12px;line-height:1.3;">'+esc(d.role)+'</div>'+
+      '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:'+ff+';font-size:12.5px;color:'+INK+';line-height:1.5;">'+
+        (d.phone?'<tr><td style="padding:1px 8px 1px 0;color:'+GRAY+';font-size:11px;">M</td><td style="padding:1px 0;"><a href="tel:'+phoneDigits+'" style="color:'+INK+';text-decoration:none;">'+esc(d.phone)+'</a></td></tr>':'')+
+        (d.tel?'<tr><td style="padding:1px 8px 1px 0;color:'+GRAY+';font-size:11px;">T</td><td style="padding:1px 0;"><a href="tel:'+telDigits+'" style="color:'+INK+';text-decoration:none;">'+esc(d.tel)+'</a></td></tr>':'')+
+        (d.email?'<tr><td style="padding:1px 8px 1px 0;color:'+GRAY+';font-size:11px;">E</td><td style="padding:1px 0;"><a href="mailto:'+esc(d.email)+'" style="color:'+INK+';text-decoration:none;">'+esc(d.email)+'</a></td></tr>':'')+
+        (d.web?'<tr><td style="padding:1px 8px 1px 0;color:'+GRAY+';font-size:11px;">W</td><td style="padding:1px 0;"><a href="https://'+esc(webHref)+'" style="color:'+INK+';text-decoration:none;font-weight:bold;">'+esc(d.web)+'</a></td></tr>':'')+
+      '</table>'+
+      '<div style="font-family:'+ff+';font-size:11px;color:'+GRAY+';padding-top:12px;margin-top:11px;border-top:1px solid '+LINE+';line-height:1.6;">'+
+        'Plessi SRL &nbsp;·&nbsp; Via Tacito 5/D, 41123 Modena (MO)'+
+      '</div>'+
+    '</td>'+
+    '<td style="vertical-align:top;padding:0 0 0 18px;">'+
+      (badgeSrc?'<img src="'+badgeSrc+'" width="52" height="52" alt="35 anni" style="display:block;width:52px;height:52px;border:0;outline:none;">':'')+
+    '</td>'+
+  '</tr>'+
+'</table>';
+  }
+
+  function readData(){
+    return {
+      name: document.getElementById('f-name').value,
+      role: document.getElementById('f-role').value,
+      phone: document.getElementById('f-phone').value,
+      email: document.getElementById('f-email').value,
+      tel: document.getElementById('f-tel').value,
+      web: document.getElementById('f-web').value
+    };
+  }
+
+  function render(){
+    var d = readData();
+    // preview uses local relative path so it shows here; export uses absolute URL
+    document.getElementById('sig-render').innerHTML = buildSignature(d, 'media/firma-logo-plessi.png', 'media/firma-sigillo.png');
+  }
+
+  document.querySelectorAll('.panel input').forEach(function(i){ i.addEventListener('input', render); });
+  render();
+
+  function flash(btn, txt){
+    var orig = btn.textContent; btn.textContent = txt; btn.classList.add('ok');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('ok'); }, 1800);
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var d = readData();
+    var html = buildSignature(d, PNG_URL, BADGE_URL);
+    var btn = this;
+    var blob = new Blob([html], {type:'text/html'});
+    var data = [new ClipboardItem({'text/html': blob, 'text/plain': new Blob([d.name+' — '+d.role], {type:'text/plain'})})];
+    navigator.clipboard.write(data).then(function(){ flash(btn,'Copiata! ✓'); }, function(){
+      // fallback: select rendered node
+      var tmp = document.createElement('div'); tmp.innerHTML = buildSignature(d, PNG_URL, BADGE_URL); document.body.appendChild(tmp);
+      var r = document.createRange(); r.selectNode(tmp); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand('copy'); flash(btn,'Copiata! ✓'); } catch(e){ flash(btn,'Usa "Copia HTML"'); }
+      sel.removeAllRanges(); document.body.removeChild(tmp);
+    });
+  });
+
+  document.getElementById('copyHtmlBtn').addEventListener('click', function(){
+    var d = readData();
+    var html = buildSignature(d, PNG_URL, BADGE_URL);
+    var btn = this;
+    navigator.clipboard.writeText(html).then(function(){ flash(btn,'Codice copiato! ✓'); }, function(){ flash(btn,'Errore'); });
+  });
+</script>
+</body>
+</html>
