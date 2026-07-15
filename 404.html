@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Pagina non trovata · Plessi</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0c0c0d">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:#0c0c0d;color:#f4f1e8;font-family:'Archivo',system-ui,sans-serif;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  -webkit-font-smoothing:antialiased;position:relative;overflow:hidden;padding:24px;
+}
+body::before{
+  content:'';position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(rgba(244,241,232,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,232,.06) 1px,transparent 1px);
+  background-size:100% 56px,56px 100%;
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(80% 70% at 50% 40%,#000,transparent 75%);
+}
+.box{position:relative;max-width:560px}
+.kick{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fdd300;margin-bottom:22px}
+h1{font-weight:900;font-size:clamp(110px,22vw,190px);line-height:.9;letter-spacing:-.04em}
+h1 span{color:#fdd300}
+p{color:rgba(244,241,232,.56);font-size:17px;line-height:1.6;margin:26px auto 38px;max-width:38ch}
+.acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+a.btn{
+  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+  font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;
+  padding:16px 26px;transition:all .3s cubic-bezier(.22,1,.36,1);
+}
+a.acc{background:#fdd300;color:#1a1500;font-weight:700}
+a.acc:hover{background:#fff}
+a.ghost{color:#f4f1e8;border:1px solid rgba(244,241,232,.18)}
+a.ghost:hover{border-color:#fdd300;color:#fdd300}
+</style>
+</head>
+<body>
+<div class="box">
+  <p class="kick">Errore 404</p>
+  <h1>4<span>0</span>4</h1>
+  <p>La pagina che cerchi non esiste o è stata spostata. Torna alla home o parlaci del tuo progetto.</p>
+  <div class="acts">
+    <a class="btn acc" href="/">Torna alla home →</a>
+    <a class="btn ghost" href="/contatti.html">Contatti</a>
+  </div>
+</div>
+</body>
+</html>

@@ -41,8 +41,13 @@
     });
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(function (el) {
-    if (reduce) { el.textContent = el.getAttribute('data-count'); }
-    else countIO.observe(el);
+    if (reduce) {
+      var v = el.getAttribute('data-count');
+      el.textContent = (el.getAttribute('data-dec') === '1') ? v.replace('.', ',') : v;
+    } else {
+      el.textContent = '0';
+      countIO.observe(el);
+    }
   });
 
   /* ---------- kinetic titles: word-by-word slam-in ---------- */
