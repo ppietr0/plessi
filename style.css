@@ -486,7 +486,7 @@ html.anim-done .hero-actions { opacity: 1 !important; transform: none !important
 .about { padding: clamp(90px, 14vh, 170px) 0; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
 .about-media { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-.about-media img { width: 100%; height: 122%; object-fit: cover; filter: grayscale(0.25) contrast(1.05) brightness(0.8); will-change: transform; }
+.about-media img, .about-media video { width: 100%; height: 122%; object-fit: cover; filter: grayscale(0.25) contrast(1.05) brightness(0.8); will-change: transform; }
 .about-media .tag {
   position: absolute; left: 0; bottom: 0; background: var(--acc); color: var(--acc-ink);
   font-family: var(--mono); font-size: 12px; padding: 14px 18px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;

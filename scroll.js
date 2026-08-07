@@ -128,7 +128,7 @@
 
   /* ---------- parallax (hero + about + tagged) ---------- */
   var heroMedia = document.querySelector('.hero-media');
-  var aboutImg = document.querySelector('.about-media img');
+  var aboutImg = document.querySelector('.about-media img, .about-media video');
   var heroInner = document.querySelector('.hero-inner');
   var divPars = document.querySelectorAll('.div-panel .par');
 
@@ -209,6 +209,28 @@
       el.style.setProperty('--mx', mx + 'px');
     });
     el.addEventListener('mouseleave', function () { el.style.setProperty('--mx', '0px'); });
+  });
+
+  /* ---------- lazy video: load only when near viewport ---------- */
+  document.querySelectorAll('video[data-src]').forEach(function (v) {
+    var vidIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        vidIO.unobserve(v);
+        if (v.dataset.loaded) return;
+        v.dataset.loaded = '1';
+        var src = document.createElement('source');
+        src.src = v.getAttribute('data-src');
+        src.type = 'video/mp4';
+        v.appendChild(src);
+        v.load();
+        var rate = parseFloat(v.getAttribute('data-rate'));
+        if (rate) { v.playbackRate = rate; v.addEventListener('loadeddata', function () { v.playbackRate = rate; }); }
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+    }, { rootMargin: '300px 0px' });
+    vidIO.observe(v);
   });
 
   /* ---------- mobile menu ---------- */
