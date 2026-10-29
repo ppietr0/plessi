@@ -128,7 +128,7 @@
 
   /* ---------- parallax (hero + about + tagged) ---------- */
   var heroMedia = document.querySelector('.hero-media');
-  var aboutImg = document.querySelector('.about-media img, .about-media video');
+  var aboutImg = document.querySelector('.about-media img');
   var heroInner = document.querySelector('.hero-inner');
   var divPars = document.querySelectorAll('.div-panel .par');
 

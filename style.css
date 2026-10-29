@@ -344,16 +344,17 @@ html.anim-done .hero-actions { opacity: 1 !important; transform: none !important
 }
 .ticker-item .sep { width: 9px; height: 9px; background: var(--acc); margin: 0 40px; flex: none; transform: rotate(45deg); }
 .ticker-item.muted { color: var(--faint); }
-@keyframes marq { to { transform: translateX(-50%); } }
+.ticker-track { will-change: transform; backface-visibility: hidden; }
+@keyframes marq { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
 /* logo marquee — uniform monochrome */
-.ticker-track.logos { align-items: center; }
+.ticker-track.logos { align-items: center; animation-duration: 60s; }
 .logo-item {
   display: inline-flex; align-items: center; justify-content: center;
-  height: 96px; padding: 0 clamp(30px, 4.2vw, 68px); flex: none;
+  height: 96px; padding: 0 clamp(26px, 3.2vw, 52px); flex: none;
 }
 .logo-item img {
-  max-height: 44px; max-width: 158px; width: auto; height: auto; object-fit: contain;
+  max-width: none; object-fit: contain;
   filter: brightness(0) invert(1); opacity: 0.55;
   transition: opacity .35s var(--ease);
 }
@@ -486,7 +487,10 @@ html.anim-done .hero-actions { opacity: 1 !important; transform: none !important
 .about { padding: clamp(90px, 14vh, 170px) 0; }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
 .about-media { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-.about-media img, .about-media video { width: 100%; height: 122%; object-fit: cover; filter: grayscale(0.25) contrast(1.05) brightness(0.8); will-change: transform; }
+.about-media img { width: 100%; height: 122%; object-fit: cover; filter: grayscale(0.25) contrast(1.05) brightness(0.8); will-change: transform; }
+.about-media--video { aspect-ratio: 4 / 3; background: #000; }
+.about-media video { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.92) contrast(1.04); }
+@media (max-width: 860px) { .about-media--video { aspect-ratio: 16 / 10; } }
 .about-media .tag {
   position: absolute; left: 0; bottom: 0; background: var(--acc); color: var(--acc-ink);
   font-family: var(--mono); font-size: 12px; padding: 14px 18px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /firma-email.html
+Disallow: /monitor.html
 
 Sitemap: https://plessi.it/sitemap.xml
