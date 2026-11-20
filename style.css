@@ -616,3 +616,8 @@ html.anim-done .hero-actions { opacity: 1 !important; transform: none !important
   * { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
   .reveal, .line-mask > span { opacity: 1 !important; transform: none !important; }
 }
+
+/* stretched link on homepage project cards */
+.card-link::after { content: ''; position: absolute; inset: 0; z-index: 3; }
+.card:hover .card-link { color: var(--acc); }
+.card .card-body:has(.card-link) { top: 0; display: flex; flex-direction: column; justify-content: flex-end; }
