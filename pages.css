@@ -309,3 +309,9 @@
 @media (max-width: 680px) { .detail .grid { grid-template-columns: 1fr; } }
 .detail-tags { display: flex; gap: 8px; flex-wrap: wrap; }
 .detail-tags span { font-family: var(--mono); font-size: 11px; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 100px; padding: 6px 13px; }
+
+.sector-nav { margin-top: clamp(50px, 8vh, 90px); padding-top: 30px; border-top: 1px solid var(--line); }
+.sector-nav ul, .sector-strip ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.sector-nav a, .sector-strip a { display: inline-block; border: 1px solid var(--line); padding: 10px 16px; font-size: 14.5px; transition: border-color .3s, color .3s; }
+.sector-nav a:hover, .sector-strip a:hover { border-color: var(--acc); color: var(--acc); }
+.sector-strip { margin-bottom: clamp(34px, 5vh, 56px); }
